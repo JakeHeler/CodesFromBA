@@ -1,0 +1,2 @@
+struct Ex {};
+void fun();
