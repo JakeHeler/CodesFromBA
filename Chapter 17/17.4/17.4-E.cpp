@@ -24,6 +24,6 @@ int main()
 	// OK : 복사생성자 제공. 
 	static_assert( std::copyable<B> );
 
-	// 에러 발생 : 복사생성자의 형식이 틀림. 파라미터의 타입에 const 키워드를 사용해야 함  
+	// 에러 발생 : 복사 생성자의 파라미터의 타입에 const 키워드를 사용해야 함
 	static_assert( std::copyable<C> );
 }
