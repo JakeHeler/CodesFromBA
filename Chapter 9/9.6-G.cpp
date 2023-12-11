@@ -42,7 +42,7 @@ int main()
 { 
     	auto start = std::chrono::steady_clock::now();
     	std::thread t1(SearchFile, 1, 10);
-    	std::thread t2(SearchFile, 1, 10);
+    	std::thread t2(SearchFile, 2, 10);
     	std::thread tmenu(DisplayMenu);
 
     	while(true)
