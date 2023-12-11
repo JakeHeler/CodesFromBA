@@ -2,38 +2,42 @@
 
 // 원본 클래스 템플릿
 template <typename... Rest>
-struct Tuple {};
+struct VarClass {};
 
 // 각각의 원소를 저장하는 클래스 템플릿
-template <typename _Ty>
-struct Tuple_val 
+template <typename T>
+struct Each_Data 
 {
-    constexpr Tuple_val() : _Val() {}
+    	constexpr Each_Data() : val() {}
 
-    template <typename _Other>
-    constexpr Tuple_val(_Other&& _Arg) : _Val(std::forward<_Other>(_Arg)) {}
+    	template <typename T1>
+    	Each_Data(T1&& arg) : val(std::forward<T1>(arg)) {}
 
-    _Ty _Val;
+    	T val;
 };
 
-template <class This, class... Rest>
-class Tuple<This, Rest...> : Tuple<Rest...> 
+template <typename This, typename... Rest>
+struct VarClass<This, Rest...> : VarClass<Rest...>
 {
 public:
-    	using Mybase    = Tuple<Rest...>;
+    	using Mybase    = VarClass<Rest...>;
 
-    	Tuple() {}
+    	VarClass() {}
 
-	// 생성자 초기화 리스트에서 베이스 클래스 초기화 및 원소 저장.
-    	Tuple(const This& arg1, const Rest&... args)
-        	: Mybase(args...), Myfirst(arg1) {}
+	// 생성자 초기화 리스트에서 부모 클래스 초기화 및 원소 저장
+    	VarClass(const This& arg1, const Rest&... args)
+        	: Mybase(args...), data(arg1) {}
 
 private:
-    	Tuple_val<This> Myfirst; 
+    	Each_Data<This> data; 
+};
+
+struct A { 
+	A() {std::cout << "A constructor\n";}
 };
 
 int main()
 {
-    	int m = 10;
-    	Tuple<int, char, double,int> vc(1,'a',0.1,m);
+    	A obj;
+    	VarClass<int, char, double, A> vc(1,'a',0.1, obj);
 }
