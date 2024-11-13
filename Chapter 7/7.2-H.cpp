@@ -22,7 +22,7 @@ int main()
      	func(p);	
 
 	    p = (int*) 0x10;
-	    //func1(p);
+	    //func(p);
 
 
 	
