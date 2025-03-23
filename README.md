@@ -37,4 +37,4 @@ https://www.youtube.com/@JakeCplus
  - 실행 결과를 확인하기 위해 소스파일 창에 Add new 메뉴를 클릭하고 Execution only를 선택한다. 그러면 컴파일이 이상 없으면 실행 결과가 나타난다.        
 
  * 사용법 관련 영상
-   https://youtu.be/RvuybtIqDTM
+   https://youtu.be/uHJ-h0RL4SA
